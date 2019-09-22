@@ -5,11 +5,18 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TaskRepository extends CrudRepository<Task,Integer> {
     @Override
     List<Task> findAll();
 
-    Task findById(Long queryId);
+    Optional<Task> findById(Long id);
+
+    @Override
+    Task save(Task task);
+
+    @Override
+    void delete(Task task);
 }
