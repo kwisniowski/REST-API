@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.1.8.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'war'
 }
 
 group = 'com.crud'
@@ -16,6 +17,9 @@ dependencies {
 	compile ('org.springframework.boot:spring-boot-starter-web')
 	testCompile ('org.springframework.boot:spring-boot-starter-test')
 	compile ('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile ('org.projectlombok:lombok')
+	compileOnly('org.projectlombok:lombok:1.18.10')
+	annotationProcessor ('org.projectlombok:lombok:1.18.10')
+//	compile ('org.projectlombok:lombok')
 	compile('mysql:mysql-connector-java')
+	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 }
