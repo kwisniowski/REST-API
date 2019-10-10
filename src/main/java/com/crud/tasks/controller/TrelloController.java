@@ -21,14 +21,10 @@ public class TrelloController {
 
     @RequestMapping(method = RequestMethod.GET,value = "getTrelloBoards")
     public void getTrelloBoards() {
-        Optional<List<TrelloBoardDto>> boardList = Optional.ofNullable(client.getTrelloBoards());
-        if (boardList.isPresent()) {
-            boardList.get().stream()
+        client.getTrelloBoards().stream()
                     .filter(trelloBoardDto -> (trelloBoardDto.getId() != null))
                     .filter(trelloBoardDto -> (trelloBoardDto.getName() != null))
                     .filter(trelloBoardDto -> (trelloBoardDto.getName().contains("Kodilla")))
                     .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + "  " + trelloBoardDto.getName()));
-        }
     }
-
 }
