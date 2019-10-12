@@ -10,7 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TrelloCardDto {
-    private String id;
     private String name;
     private String description;
     private String listId;
