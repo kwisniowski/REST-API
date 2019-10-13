@@ -28,7 +28,7 @@ public class SimpleEmailService  {
         }
     }
 
-    public SimpleMailMessage createMailMessage(final Mail mail) {
+    protected SimpleMailMessage createMailMessage(final Mail mail) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getReciverMail());
         mailMessage.setSubject(mail.getSubject());
