@@ -72,7 +72,6 @@ public class TrelloClientTest {
                 "Test task",
                 "http://test.com",
                 null);
-        System.out.println("tTest:  " + uri);
         when(restTemplate.postForObject(uri,null,CreatedTrelloCard.class)).thenReturn(createdTrelloCard);
         //When
         CreatedTrelloCard testCard = trelloClient.createNewCard(newTrelloCardDto);
@@ -86,7 +85,7 @@ public class TrelloClientTest {
     public void shouldReturnEmptyList() throws URISyntaxException {
         //Given
         URI uri = new URI("http://test.com/members/kacperwisniowski/boards?key=test&token=test&lists=all&fields=name,id");
-        when(restTemplate.getForObject(uri,TrelloCardDto[].class)).thenReturn(null);
+      //  when(restTemplate.getForObject(uri,TrelloCardDto[].class)).thenReturn(null);
         //When
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
         //Then
