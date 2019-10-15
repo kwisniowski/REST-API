@@ -18,7 +18,7 @@ public class EmailScheduler {
     AdminConfig adminConfig;
     private static String SUBJECT = "Task: Once a day email";
 
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(fixedDelay = 30000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String taskCount=(size==1)?"task":"tasks";
@@ -28,7 +28,5 @@ public class EmailScheduler {
                 SUBJECT,
                 "Currently there are "+size+" "+taskCount+" in database"));
     }
-
-
 }
 
