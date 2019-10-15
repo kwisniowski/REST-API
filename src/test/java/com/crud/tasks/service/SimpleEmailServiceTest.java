@@ -25,7 +25,7 @@ public class SimpleEmailServiceTest {
     @Test
     public void shouldSendEmail() {
         //Given
-        Mail mail = new Mail("kwisniowski@cxsa.pl","wisniowski.kacper@gmail.com","Test mail","Test message");
+        Mail mail = new Mail("kwisniowski@cxsa.pl","wk@gmail.com","Test mail","Test message");
         //When
         simpleEmailService.send(mail);
         ArgumentCaptor<SimpleMailMessage> captor = ArgumentCaptor.forClass(SimpleMailMessage.class);
@@ -33,6 +33,7 @@ public class SimpleEmailServiceTest {
         SimpleMailMessage sentMail = captor.getValue();
         //Then
         assertEquals("Test mail", sentMail.getSubject());
+        assertEquals("wk@gmail.com",sentMail.getCc()[0]);
     }
 
 }
