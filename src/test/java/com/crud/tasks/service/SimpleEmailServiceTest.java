@@ -29,11 +29,10 @@ public class SimpleEmailServiceTest {
         //When
         simpleEmailService.send(mail);
         ArgumentCaptor<SimpleMailMessage> captor = ArgumentCaptor.forClass(SimpleMailMessage.class);
-        verify(javaMailSender,Mockito.times(1)).send(captor.capture());
+        verify(javaMailSender).send(captor.capture());
         SimpleMailMessage sentMail = captor.getValue();
         //Then
         assertEquals("Test mail", sentMail.getSubject());
         assertEquals("wk@gmail.com",sentMail.getCc()[0]);
     }
-
 }

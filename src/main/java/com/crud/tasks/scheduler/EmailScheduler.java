@@ -29,4 +29,3 @@ public class EmailScheduler {
                 "Currently there are "+size+" "+taskCount+" in database"));
     }
 }
-
