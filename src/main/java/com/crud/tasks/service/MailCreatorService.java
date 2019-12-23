@@ -60,7 +60,7 @@ public class MailCreatorService {
 
         List <Task> tempTask = taskRepository.findAll();
         List <String> taskNames = tempTask.stream()
-                .map(task -> task.getTitle())
+                .map(task -> task.getId().toString())
                 .collect(Collectors.toList());
 
         Context context = new Context();
